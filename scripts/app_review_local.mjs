@@ -808,6 +808,7 @@ function wrapHtml({ title, body, app, stats }) {
       --neutral:#b8b7b0;
       --shadow:0 18px 50px rgb(63 57 45 / .08);
       --serif: Charter, Georgia, "Songti SC", "Noto Serif CJK SC", serif;
+      --reader-serif: "Iowan Old Style", Charter, Georgia, "Songti SC", "Noto Serif CJK SC", serif;
       --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
       --mono: "SF Mono", Consolas, "JetBrains Mono", monospace;
     }
@@ -915,8 +916,88 @@ function wrapHtml({ title, body, app, stats }) {
     .term-row span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     .empty { color:var(--muted); font-family:var(--sans); }
     .card { border-radius:8px; padding:28px; margin-top:22px; }
-    .card > h1:first-child { font-size:30px; }
-    .card h2 { margin-top:34px; border-top:1px solid var(--line); padding-top:24px; }
+    .report-card {
+      max-width:900px;
+      margin:28px auto 0;
+      padding:42px clamp(22px, 5vw, 58px) 54px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:linear-gradient(180deg, rgb(255 254 250 / .94), rgb(250 247 239 / .94));
+      box-shadow:var(--shadow);
+      font-family:var(--reader-serif);
+      font-size:17px;
+      line-height:1.86;
+    }
+    .report-card > h1:first-child {
+      max-width:18ch;
+      margin-bottom:24px;
+      font-size:34px;
+      line-height:1.16;
+    }
+    .report-card h2 {
+      margin:46px 0 18px;
+      padding:12px 16px;
+      border:1px solid #e8e1cf;
+      border-radius:8px;
+      background:linear-gradient(135deg, #f8f2e4, #fffdf8);
+      color:var(--brand);
+      font-family:var(--serif);
+      font-size:24px;
+    }
+    .report-card h3 {
+      margin:30px 0 10px;
+      color:#2b2925;
+      font-family:var(--serif);
+      font-size:20px;
+      line-height:1.35;
+    }
+    .report-card p {
+      max-width:68ch;
+      margin:12px 0;
+      color:#2f2c27;
+      letter-spacing:.01em;
+    }
+    .report-card h2 + p {
+      margin-top:16px;
+      color:#24221f;
+      font-size:18px;
+    }
+    .report-card ul {
+      display:grid;
+      gap:10px;
+      margin:14px 0 24px;
+      padding:0;
+      list-style:none;
+    }
+    .report-card li {
+      position:relative;
+      padding:11px 14px 11px 32px;
+      border:1px solid #eee7d7;
+      border-radius:8px;
+      background:#fbf7ed;
+      color:#37332c;
+      line-height:1.72;
+    }
+    .report-card li::before {
+      content:"";
+      position:absolute;
+      left:15px;
+      top:1.55em;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:var(--brand);
+      opacity:.72;
+    }
+    .report-card blockquote {
+      max-width:68ch;
+      border:1px solid #dfe7f5;
+      border-radius:8px;
+      background:#f1f5fb;
+      color:var(--brand);
+      font-family:var(--sans);
+    }
+    .report-card .table-wrap { max-width:760px; }
     @media (max-width: 880px) {
       main { padding:32px 14px 56px; }
       h1 { font-size:34px; }
@@ -926,6 +1007,12 @@ function wrapHtml({ title, body, app, stats }) {
       .donut-wrap { align-items:flex-start; }
       .version-row { grid-template-columns:1fr; gap:8px; }
       .version-row em { text-align:left; }
+      .report-card { padding:28px 16px 38px; font-size:16px; }
+      .report-card > h1:first-child { font-size:29px; }
+      .report-card h2 { font-size:21px; padding:11px 12px; }
+      .report-card h3 { font-size:18px; }
+      .report-card h2 + p { font-size:16.5px; }
+      .report-card li { padding-left:28px; }
     }
   </style>
 </head>
@@ -937,9 +1024,9 @@ function wrapHtml({ title, body, app, stats }) {
       ${subtitle ? `<div class="subtitle">${subtitle}</div>` : ''}
     </header>
     ${dashboard}
-    <section class="card">
+    <article class="report-card">
 ${body}
-    </section>
+    </article>
   </main>
 </body>
 </html>`;
