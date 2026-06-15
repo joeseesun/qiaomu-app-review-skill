@@ -669,6 +669,35 @@ function buildDashboardHtml(app, stats) {
   </section>`;
 }
 
+function isTableRow(line) {
+  const trimmed = line.trim();
+  return trimmed.startsWith('|') && trimmed.endsWith('|') && trimmed.includes('|');
+}
+
+function isTableDivider(line) {
+  if (!isTableRow(line)) return false;
+  return splitTableRow(line).every((cell) => /^:?-{3,}:?$/.test(cell.trim()));
+}
+
+function splitTableRow(line) {
+  return line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim());
+}
+
+function buildTableHtml(lines) {
+  const header = splitTableRow(lines[0]);
+  const rows = lines.slice(2).map(splitTableRow);
+  const headHtml = header.map((cell) => `<th>${inlineMarkdown(cell)}</th>`).join('');
+  const bodyHtml = rows
+    .map((row) => `<tr>${row.map((cell) => `<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`)
+    .join('\n');
+  return `<div class="table-wrap"><table>
+<thead><tr>${headHtml}</tr></thead>
+<tbody>
+${bodyHtml}
+</tbody>
+</table></div>`;
+}
+
 function markdownToHtml(markdown) {
   const lines = markdown.split(/\r?\n/);
   const html = [];
@@ -683,7 +712,8 @@ function markdownToHtml(markdown) {
     }
   }
 
-  for (const line of lines) {
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
     if (line.startsWith('```')) {
       if (inCode) {
         html.push(`<pre><code>${escapeHtml(code.join('\n'))}</code></pre>`);
@@ -699,6 +729,20 @@ function markdownToHtml(markdown) {
       code.push(line);
       continue;
     }
+
+    if (isTableRow(line) && isTableDivider(lines[index + 1] || '')) {
+      closeList();
+      const tableLines = [line, lines[index + 1]];
+      index += 2;
+      while (index < lines.length && isTableRow(lines[index])) {
+        tableLines.push(lines[index]);
+        index += 1;
+      }
+      index -= 1;
+      html.push(buildTableHtml(tableLines));
+      continue;
+    }
+
     if (/^###\s+/.test(line)) {
       closeList();
       html.push(`<h3>${escapeHtml(line.replace(/^###\s+/, ''))}</h3>`);
@@ -788,6 +832,11 @@ function wrapHtml({ title, body, app, stats }) {
     pre { overflow:auto; background:#191916; color:#fafafa; border-radius:8px; padding:16px; }
     ul { padding-left:1.3rem; }
     a { color:var(--brand); }
+    .table-wrap { width:100%; overflow-x:auto; margin:18px 0 22px; border:1px solid var(--line); border-radius:8px; background:rgb(255 253 250 / .72); }
+    table { width:100%; min-width:520px; border-collapse:collapse; font-family:var(--sans); font-size:14px; }
+    th, td { padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--brand); background:var(--brand-soft); font-weight:700; }
+    tr:last-child td { border-bottom:0; }
     .subtitle { color:var(--muted); font-family:var(--sans); }
     .dashboard { margin: 0 0 24px; }
     .dashboard-title {
