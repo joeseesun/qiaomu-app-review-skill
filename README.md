@@ -1,14 +1,14 @@
 # qiaomu-app-review-skill
 
 > App Store 评论不是“用户留言板”，它是最便宜、最真实的产品研究资料。
-> 这个 skill 让你的 Agent 会用乔木App评价洞察，把评论变成痛点、机会、版本风险和可复盘的产品洞察。
+> 这个 skill 让你的 Agent 会用乔木 App 洞察，把评论变成痛点、机会、版本风险和可复盘的产品洞察。
 
 [![Install](https://img.shields.io/badge/install-npx%20skills%20add%20joeseesun%2Fqiaomu--app--review--skill-111827?style=for-the-badge)](#安装)
 [![Live Demo](https://img.shields.io/badge/live-appreview.qiaomu.ai-0f766e?style=for-the-badge)](https://appreview.qiaomu.ai)
 [![Website Repo](https://img.shields.io/badge/source-qiaomu--app--review--insights-blue?style=for-the-badge)](https://github.com/joeseesun/qiaomu-app-review-insights)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![乔木App评价洞察截图](assets/product-screenshot.png)
+![乔木 App 洞察截图](assets/product-screenshot.png)
 
 ## 为什么值得装？
 
@@ -50,7 +50,7 @@ npx skills add joeseesun/qiaomu-app-review-skill
 | 版本风险 | 和更新、功能退化、性能、价格策略相关的风险 |
 | 行动建议 | 下一步产品动作、调研动作和修复优先级 |
 
-![乔木App评价洞察图表截图](assets/diagnostics-screenshot.png)
+![乔木 App 洞察图表截图](assets/diagnostics-screenshot.png)
 
 ## 前置条件
 
