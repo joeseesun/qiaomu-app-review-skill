@@ -1,9 +1,9 @@
-# qiaomu-app-review
+# qiaomu-app-review-skill
 
 > App Store 评论不是“用户留言板”，它是最便宜、最真实的产品研究资料。
 > 这个 skill 让你的 Agent 会用乔木App评价洞察，把评论变成痛点、机会、版本风险和 SEO/GEO 内容资产。
 
-[![Install](https://img.shields.io/badge/install-npx%20skills%20add%20joeseesun%2Fqiaomu--app--review-111827?style=for-the-badge)](#安装)
+[![Install](https://img.shields.io/badge/install-npx%20skills%20add%20joeseesun%2Fqiaomu--app--review--skill-111827?style=for-the-badge)](#安装)
 [![Live Demo](https://img.shields.io/badge/live-appreview.qiaomu.ai-0f766e?style=for-the-badge)](https://appreview.qiaomu.ai)
 [![Website Repo](https://img.shields.io/badge/source-qiaomu--app--review--insights-blue?style=for-the-badge)](https://github.com/joeseesun/qiaomu-app-review-insights)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -28,7 +28,7 @@
 ## 安装
 
 ```bash
-npx skills add joeseesun/qiaomu-app-review
+npx skills add joeseesun/qiaomu-app-review-skill
 ```
 
 安装后，对你的 Agent 这样说就行：
@@ -109,7 +109,7 @@ curl -X POST https://appreview.qiaomu.ai/api/research/regenerate \
 
 | 问题 | 解决方法 |
 | --- | --- |
-| `npx skills add` 找不到 skill | 确认仓库名是 `joeseesun/qiaomu-app-review`，并检查网络或 GitHub 访问。 |
+| `npx skills add` 找不到 skill | 确认仓库名是 `joeseesun/qiaomu-app-review-skill`，并检查网络或 GitHub 访问。 |
 | Agent 只给泛泛总结 | 明确要求“保留评论证据，并按痛点、机会、版本风险输出”。 |
 | 网站 API 返回密钥错误 | 检查部署环境里的 `QIAOMU_LLM_API_KEY` / `DEEPSEEK_API_KEY`。不要把真实 key 写进仓库。 |
 | 搜索结果不是目标 App | 直接提供 App Store URL 或 App ID，并指定国家区，例如 `us` / `cn`。 |
