@@ -2,13 +2,13 @@
 name: qiaomu-app-review
 description: |
   Use when a user wants to analyze App Store reviews, mine product opportunities
-  from user comments, generate SEO/GEO-friendly App review insight pages, compare
-  competitor pain points, or deploy/reuse the Qiaomu App Review Insights website.
+  from user comments, compare competitor pain points, generate durable review
+  insight pages, or deploy/reuse the Qiaomu App Review Insights website.
 ---
 
 # Qiaomu App Review
 
-Turn App Store comments into product insight, evidence, and SEO/GEO-ready pages.
+Turn App Store comments into product insight, evidence, and durable review pages.
 
 ## Default Workflow
 
@@ -74,7 +74,7 @@ Never print, store, or commit real API keys. Use local `.env.local`, macOS Keych
 - Do not invent review evidence. If no review samples are available, say that clearly.
 - Do not treat AI summaries as facts without showing representative comments.
 - Do not commit `.env.local`, `.env.development`, cache data, tokens, or private deployment paths.
-- For public pages, keep SEO/GEO fundamentals: stable URL, title/description, canonical URL, structured data, update time, and source evidence.
+- For public pages, keep distribution fundamentals: stable URL, title/description, canonical URL, structured data, update time, and source evidence.
 
 ## Metadata
 

@@ -1,7 +1,7 @@
 # qiaomu-app-review-skill
 
 > App Store 评论不是“用户留言板”，它是最便宜、最真实的产品研究资料。
-> 这个 skill 让你的 Agent 会用乔木App评价洞察，把评论变成痛点、机会、版本风险和 SEO/GEO 内容资产。
+> 这个 skill 让你的 Agent 会用乔木App评价洞察，把评论变成痛点、机会、版本风险和可复盘的产品洞察。
 
 [![Install](https://img.shields.io/badge/install-npx%20skills%20add%20joeseesun%2Fqiaomu--app--review--skill-111827?style=for-the-badge)](#安装)
 [![Live Demo](https://img.shields.io/badge/live-appreview.qiaomu.ai-0f766e?style=for-the-badge)](https://appreview.qiaomu.ai)
@@ -22,7 +22,7 @@
 - 抓取 App Store 用户评论
 - 保留证据句，而不是只给空洞判断
 - 用 DeepSeek v4 flash 提炼摘要、核心痛点、产品机会、正向信号、用户分层、版本风险和行动建议
-- 需要时生成 SEO/GEO 友好的静态洞察页
+- 需要时生成稳定、可分享、可追溯的静态洞察页
 - 能调用公开站点或你自己部署的服务
 
 ## 安装
@@ -35,14 +35,14 @@ npx skills add joeseesun/qiaomu-app-review-skill
 
 - `分析 ChatGPT 的 App Store 评价，重点看产品机会和版本风险`
 - `找一个 AI 写作 App 的差评痛点，看看有没有独立开发机会`
-- `把这个 App 的用户评论整理成 SEO/GEO 友好的洞察页`
+- `把这个 App 的用户评论整理成产品洞察页`
 - `比较两个竞品 App 的评论，告诉我用户真正不满的地方`
 
 ## 它会输出什么？
 
 | 模块 | 你会得到什么 |
 | --- | --- |
-| 摘要 | 一段能被产品、SEO 和 GEO 直接使用的口碑概述 |
+| 摘要 | 一段能被产品、调研和内容团队直接使用的口碑概述 |
 | 核心痛点 | 用户反复抱怨的问题，附评论证据 |
 | 产品机会 | 能进入需求池、路线图或独立产品切口的机会 |
 | 正向信号 | 用户给高分的原因和不可丢失的价值点 |
@@ -102,7 +102,7 @@ curl -X POST https://appreview.qiaomu.ai/api/research/regenerate \
 - 上线新功能前，研究竞品最近差评
 - 想做独立 App，但不知道用户真实痛点在哪里
 - 做产品复盘，判断版本更新是不是引发了口碑波动
-- 给 SEO/GEO 页面补有证据的用户评价内容
+- 给内容或增长页面补有证据的用户评价素材
 - 给需求池补“来自真实用户评论”的证据链
 
 ## Troubleshooting
